@@ -1,5 +1,4 @@
 COPY src/ApiGateways/ApiGw-Base/*.csproj /src/src/ApiGateways/ApiGw-Base/
-COPY src/ApiGateways/Mobile.Bff.Shopping/aggregator/*.csproj /src/src/ApiGateways/Mobile.Bff.Shopping/aggregator/
 COPY src/ApiGateways/Web.Bff.Shopping/aggregator/*.csproj /src/src/ApiGateways/Web.Bff.Shopping/aggregator/
 COPY src/BuildingBlocks/EventBus/CommandBus/*.csproj /src/src/BuildingBlocks/EventBus/CommandBus/
 COPY src/BuildingBlocks/EventBus/EventBus/*.csproj /src/src/BuildingBlocks/EventBus/EventBus/

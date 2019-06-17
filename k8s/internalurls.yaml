@@ -24,10 +24,7 @@ data:
   mvc__hc: http://webmvc/hc
   spa__hc: http://webspa/hc
 # Aggreggators
-  mobileshoppingagg: http://mobileshoppingagg
   webshoppingagg: http://webshoppingagg
 # API GWs
-  apigwmm: http://ocelotapigw-mm
-  apigwms: http://ocelotapigw-ms
   apigwwm: http://ocelotapigw-wm
   apigwws: http://ocelotapigw-ws

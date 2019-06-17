@@ -91,8 +91,6 @@ Once the script is run, you should see following output when using `kubectl get 
 
 ```
 NAME                             DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-eshop-apigwmm                    1         1         1            1           4d
-eshop-apigwms                    1         1         1            1           4d
 eshop-apigwwm                    1         1         1            1           4d
 eshop-apigwws                    1         1         1            1           4d
 eshop-basket-api                 1         1         1            1           4d
@@ -102,7 +100,6 @@ eshop-identity-api               1         1         1            1           4d
 eshop-keystore-data              1         1         1            1           4d
 eshop-locations-api              1         1         1            1           4d
 eshop-marketing-api              1         1         1            1           4d
-eshop-mobileshoppingagg          1         1         1            1           4d
 eshop-nosql-data                 1         1         1            1           4d
 eshop-ordering-api               1         1         1            1           4d
 eshop-ordering-backgroundtasks   1         1         1            1           4d
@@ -223,8 +220,6 @@ Once the script is run, you should see following output when using `kubectl get 
 
 ```
 NAME                             DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-eshop-apigwmm                    1         1         1            1           2h
-eshop-apigwms                    1         1         1            1           2h
 eshop-apigwwm                    1         1         1            1           2h
 eshop-apigwws                    1         1         1            1           2h
 eshop-basket-api                 1         1         1            1           2h
@@ -234,7 +229,6 @@ eshop-identity-api               1         1         1            1           2h
 eshop-keystore-data              1         1         1            1           2h
 eshop-locations-api              1         1         1            1           2h
 eshop-marketing-api              1         1         1            1           2h
-eshop-mobileshoppingagg          1         1         1            1           2h
 eshop-nosql-data                 1         1         1            1           2h
 eshop-ordering-api               1         1         1            1           2h
 eshop-ordering-backgroundtasks   1         1         1            1           2h
@@ -264,16 +258,11 @@ c2c4640ed610        eshop/marketing.api              "dotnet Marketing.AP…"   
 00c6e4c52135        eshop/webspa                     "dotnet WebSPA.dll"      2 hours ago         Up 2 hours                              k8s_webspa_eshop-webspa-64cb8df9cb-dcbwg_default_4cd47376-e67f-11e8-b4b6-00155d016146_0
 d4507f1f6b1a        eshop/webshoppingagg             "dotnet Web.Shopping…"   2 hours ago         Up 2 hours                              k8s_webshoppingagg_eshop-webshoppingagg-cc94fc86-sxd2v_default_4be6cdb9-e67f-11e8-b4b6-00155d016146_0
 9178e26703da        eshop/webmvc                     "dotnet WebMVC.dll"      2 hours ago         Up 2 hours                              k8s_webmvc_eshop-webmvc-985779684-4br5z_default_4addd4d6-e67f-11e8-b4b6-00155d016146_0
-1088c281c710        eshop/ordering.api               "dotnet Ordering.API…"   2 hours ago         Up 2 hours                              k8s_ordering-api_eshop-ordering-api-fb8c548cb-k68x9_default_4740958a-e67f-11e8-b4b6-00155d016146_0
-12424156d5c9        eshop/mobileshoppingagg          "dotnet Mobile.Shopp…"   2 hours ago         Up 2 hours                              k8s_mobileshoppingagg_eshop-mobileshoppingagg-b54645d7b-rlrgh_default_46c00017-e67f-11e8-b4b6-00155d016146_0
-65463ffd437d        eshop/locations.api              "dotnet Locations.AP…"   2 hours ago         Up 2 hours                              k8s_locations-api_eshop-locations-api-577fc94696-dfhq8_default_44929c4b-e67f-11e8-b4b6-00155d016146_0
+1088c281c710        eshop/ordering.api               "dotnet Ordering.API…"   2 hours ago         Up 2 hours                                                       k8s_locations-api_eshop-locations-api-577fc94696-dfhq8_default_44929c4b-e67f-11e8-b4b6-00155d016146_0
 5b3431873763        eshop/identity.api               "dotnet Identity.API…"   2 hours ago         Up 2 hours                              k8s_identity-api_eshop-identity-api-85d9b79f4-s5ks7_default_43d6eb7c-e67f-11e8-b4b6-00155d016146_0
 7c8e77252459        eshop/catalog.api                "dotnet Catalog.API.…"   2 hours ago         Up 2 hours                              k8s_catalog-api_eshop-catalog-api-59fd444fb-ztvhz_default_4356705a-e67f-11e8-b4b6-00155d016146_0
 94d95d0d3653        eshop/ocelotapigw                "dotnet OcelotApiGw.…"   2 hours ago         Up 2 hours                              k8s_apigwws_eshop-apigwws-65474b979d-n99jw_default_41395473-e67f-11e8-b4b6-00155d016146_0
 bc4bbce71d5f        eshop/ocelotapigw                "dotnet OcelotApiGw.…"   2 hours ago         Up 2 hours                              k8s_apigwwm_eshop-apigwwm-857c549dd8-8w5gv_default_4098d770-e67f-11e8-b4b6-00155d016146_0
-840aabcceaa9        eshop/ocelotapigw                "dotnet OcelotApiGw.…"   2 hours ago         Up 2 hours                              k8s_apigwms_eshop-apigwms-5b94dfb54b-dnmr9_default_401fc611-e67f-11e8-b4b6-00155d016146_0
-aabed7646f5b        eshop/ocelotapigw                "dotnet OcelotApiGw.…"   2 hours ago         Up 2 hours                              k8s_apigwmm_eshop-apigwmm-85f96cbdb4-dhfwr_default_3ed7967a-e67f-11e8-b4b6-00155d016146_0
-49c5700def5a        f06a5773f01e                     "docker-entrypoint.s…"   2 hours ago         Up 2 hours                              k8s_basket-data_eshop-basket-data-66fbc788cc-csnlw_default_3e0c45fe-e67f-11e8-b4b6-00155d016146_0
 a5db4c521807        f06a5773f01e                     "docker-entrypoint.s…"   2 hours ago         Up 2 hours                              k8s_keystore-data_eshop-keystore-data-5c9c85cb99-8k56s_default_3ce1a273-e67f-11e8-b4b6-00155d016146_0
 aae88fd2d810        d69a5113ceae                     "docker-entrypoint.s…"   2 hours ago         Up 2 hours                              k8s_rabbitmq_eshop-rabbitmq-6b68647bc4-gr565_default_3c37ee6a-e67f-11e8-b4b6-00155d016146_0
 65d49ca9589d        bbed8d0e01c1                     "docker-entrypoint.s…"   2 hours ago         Up 2 hours                              k8s_nosql-data_eshop-nosql-data-579c9d89f8-mtt95_default_3b9c1f89-e67f-11e8-b4b6-00155d016146_0

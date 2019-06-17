@@ -178,8 +178,6 @@ ExecKube -cmd 'set image deployments/ordering-signalrhub ordering-signalrhub=${r
 
 ExecKube -cmd 'set image deployments/webshoppingagg webshoppingagg=${registryPath}${dockerOrg}/webshoppingagg:$imageTag'
 
-ExecKube -cmd 'set image deployments/apigwmm apigwmm=${registryPath}${dockerOrg}/ocelotapigw:$imageTag'
-ExecKube -cmd 'set image deployments/apigwms apigwms=${registryPath}${dockerOrg}/ocelotapigw:$imageTag'
 ExecKube -cmd 'set image deployments/apigwwm apigwwm=${registryPath}${dockerOrg}/ocelotapigw:$imageTag'
 ExecKube -cmd 'set image deployments/apigwws apigwws=${registryPath}${dockerOrg}/ocelotapigw:$imageTag'
 
@@ -196,8 +194,6 @@ ExecKube -cmd 'rollout resume deployments/webmvc'
 ExecKube -cmd 'rollout resume deployments/webstatus'
 ExecKube -cmd 'rollout resume deployments/webspa'
 ExecKube -cmd 'rollout resume deployments/webshoppingagg'
-ExecKube -cmd 'rollout resume deployments/apigwmm'
-ExecKube -cmd 'rollout resume deployments/apigwms'
 ExecKube -cmd 'rollout resume deployments/apigwwm'
 ExecKube -cmd 'rollout resume deployments/apigwws'
 ExecKube -cmd 'rollout resume deployments/ordering-signalrhub'

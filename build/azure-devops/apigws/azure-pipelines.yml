@@ -8,8 +8,6 @@ trigger:
   paths:
     include:
     - src/ApiGateways/*
-    - k8s/helm/apigwmm/*
-    - k8s/helm/apigwms/*
     - k8s/helm/apigwwm/*
     - k8s/helm/apigwws/*
     exclude:
