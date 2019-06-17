@@ -76,16 +76,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGw-Base", "ApiGw-Base", "{EC91ADE9-3D66-4AB2-9FB4-2B585E1F3531}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile.Bff.Marketing", "Mobile.Bff.Marketing", "{DB813A36-11BA-41FE-B258-CA9A7152247B}"
-	ProjectSection(SolutionItems) = preProject
-		src\ApiGateways\Mobile.Bff.Marketing\apigw\configuration.json = src\ApiGateways\Mobile.Bff.Marketing\apigw\configuration.json
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile.Bff.Shopping", "Mobile.Bff.Shopping", "{0189E4FB-6E2B-4F2E-9B1D-5473D23FC6DB}"
-	ProjectSection(SolutionItems) = preProject
-		src\ApiGateways\Mobile.Bff.Shopping\apigw\configuration.json = src\ApiGateways\Mobile.Bff.Shopping\apigw\configuration.json
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web.Bff.Marketing", "Web.Bff.Marketing", "{F8F0921C-EE5D-4AED-A4D6-5BF5FAE02CB5}"
 	ProjectSection(SolutionItems) = preProject
 		src\ApiGateways\Web.Bff.Marketing\apigw\configuration.json = src\ApiGateways\Web.Bff.Marketing\apigw\configuration.json
@@ -97,8 +87,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web.Bff.Shopping", "Web.Bff
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotApiGw", "src\ApiGateways\ApiGw-Base\OcelotApiGw.csproj", "{3F79558C-485D-49E1-BD3E-E12538D3D308}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mobile.Shopping.HttpAggregator", "src\ApiGateways\Mobile.Bff.Shopping\aggregator\Mobile.Shopping.HttpAggregator.csproj", "{BEA37D6D-4CF2-4AE8-9575-72388E54FBD0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Shopping.HttpAggregator", "src\ApiGateways\Web.Bff.Shopping\aggregator\Web.Shopping.HttpAggregator.csproj", "{AF0828DB-8BDD-411A-AEEF-B780FBB8D8C1}"
 EndProject
@@ -1781,12 +1769,9 @@ Global
 		{15F4B3AA-89B6-4A0D-9051-414305974781} = {1815B651-941C-466B-AE33-D1D7EEB8F77F}
 		{77849D35-37D4-4802-81DC-9477B2775A40} = {932D8224-11F6-4D07-B109-DA28AD288A63}
 		{EC91ADE9-3D66-4AB2-9FB4-2B585E1F3531} = {77849D35-37D4-4802-81DC-9477B2775A40}
-		{DB813A36-11BA-41FE-B258-CA9A7152247B} = {77849D35-37D4-4802-81DC-9477B2775A40}
-		{0189E4FB-6E2B-4F2E-9B1D-5473D23FC6DB} = {77849D35-37D4-4802-81DC-9477B2775A40}
 		{F8F0921C-EE5D-4AED-A4D6-5BF5FAE02CB5} = {77849D35-37D4-4802-81DC-9477B2775A40}
 		{28C0F5C8-4849-4035-80AB-45639424E73F} = {77849D35-37D4-4802-81DC-9477B2775A40}
 		{3F79558C-485D-49E1-BD3E-E12538D3D308} = {EC91ADE9-3D66-4AB2-9FB4-2B585E1F3531}
-		{BEA37D6D-4CF2-4AE8-9575-72388E54FBD0} = {0189E4FB-6E2B-4F2E-9B1D-5473D23FC6DB}
 		{AF0828DB-8BDD-411A-AEEF-B780FBB8D8C1} = {28C0F5C8-4849-4035-80AB-45639424E73F}
 		{7D63ED4A-3EDA-4BBA-8BBA-F46BD6430931} = {0BD0DB92-2D98-44D9-9AC0-C59186D59B0B}
 		{E1D2B260-4E7F-4A88-BC13-9910F7C44623} = {0BD0DB92-2D98-44D9-9AC0-C59186D59B0B}

@@ -13,12 +13,11 @@ trigger:
     - k8s/helm/apigwwm/*
     - k8s/helm/apigwws/*
     exclude:
-    - src/ApiGateways/Mobile.Bff.Shopping/aggregator/*
     - src/ApiGateways/Web.Bff.Shopping/aggregator/*
 jobs:
 - template: ../buildimages.yaml
   parameters:
-    services: mobileshoppingapigw mobilemarketingapigw webshoppingapigw webmarketingapigw
+    services: webshoppingapigw webmarketingapigw
     registryEndpoint: $(registryEndpoint)
     helmfrom: $(Build.SourcesDirectory)/k8s/helm
     helmto: $(Build.ArtifactStagingDirectory)/k8s/helm    

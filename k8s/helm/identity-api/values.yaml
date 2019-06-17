@@ -48,8 +48,6 @@ env:
       key: basket_e
     - name: OrderingApiClient
       key: ordering_e
-    - name: MobileShoppingAggClient
-      key: mobileshoppingagg_e
     - name: WebShoppingAggClient
       key: webshoppingagg_e
     - name: XamarinCallback

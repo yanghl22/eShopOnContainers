@@ -35,7 +35,6 @@ packages/
 csproj-files/
 test-results/
 TestResults/
-src/Mobile/
 src/Web/Catalog.WebForms/
 src/Web/WebMonolithic/
 src/BuildingBlocks/CommandBus/

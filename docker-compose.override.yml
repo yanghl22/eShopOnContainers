@@ -45,7 +45,6 @@ services:
       - MarketingApiClient=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5110
       - BasketApiClient=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5103
       - OrderingApiClient=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5102
-      - MobileShoppingAggClient=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5120
       - WebShoppingAggClient=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5121
       - WebhooksApiClient=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5113
       - WebhooksWebClient=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5114
@@ -209,42 +208,6 @@ services:
       - "5113:80"   # Important: In a production environment your should remove the external port (5109) kept here for microservice debugging purposes. 
                     # The API Gateway redirects and access through the internal port (80).
 
-  mobileshoppingapigw:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - IdentityUrl=http://identity.api              #Local: You need to open your local dev-machine firewall at range 5100-5110.
-      - urls__basket=http://basket.api
-      - urls__catalog=http://catalog.api
-      - urls__orders=http://ordering.api
-      - urls__identity=http://identity.api
-      - CatalogUrlHC=http://catalog.api/hc
-      - OrderingUrlHC=http://ordering.api/hc
-      - IdentityUrlHC=http://identity.api/hc             
-      - BasketUrlHC=http://basket.api/hc
-      - MarketingUrlHC=http://marketing.api/hc
-      - PaymentUrlHC=http://payment.api/hc
-      - LocationUrlHC=http://locations.api/hc
-    ports:
-      - "5200:80"   
-    volumes:
-      - ./src/ApiGateways/Mobile.Bff.Shopping/apigw:${ESHOP_OCELOT_VOLUME_SPEC:-/app/configuration}
-
-  mobilemarketingapigw:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - IdentityUrl=http://identity.api              #Local: You need to open your local dev-machine firewall at range 5100-5110.
-      - CatalogUrlHC=http://catalog.api/hc
-      - OrderingUrlHC=http://ordering.api/hc
-      - IdentityUrlHC=http://identity.api/hc             
-      - BasketUrlHC=http://basket.api/hc
-      - MarketingUrlHC=http://marketing.api/hc
-      - PaymentUrlHC=http://payment.api/hc
-      - LocationUrlHC=http://locations.api/hc
-    ports:
-      - "5201:80"   
-    volumes:
-      - ./src/ApiGateways/Mobile.Bff.Marketing/apigw:${ESHOP_OCELOT_VOLUME_SPEC:-/app/configuration}
-
   webshoppingapigw:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -277,23 +240,6 @@ services:
     volumes:
       - ./src/ApiGateways/Web.Bff.Marketing/apigw:${ESHOP_OCELOT_VOLUME_SPEC:-/app/configuration}
 
-  mobileshoppingagg:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - urls__basket=http://basket.api
-      - urls__catalog=http://catalog.api
-      - urls__orders=http://ordering.api
-      - urls__identity=http://identity.api              #Local: You need to open your local dev-machine firewall at range 5100-5110.
-      - CatalogUrlHC=http://catalog.api/hc
-      - OrderingUrlHC=http://ordering.api/hc
-      - IdentityUrlHC=http://identity.api/hc             
-      - BasketUrlHC=http://basket.api/hc
-      - MarketingUrlHC=http://marketing.api/hc
-      - PaymentUrlHC=http://payment.api/hc
-      - LocationUrlHC=http://locations.api/hc
-    ports:
-      - "5120:80"   # Important: In a production environment your should remove the external port (5120) kept here for microservice debugging purposes. 
-                    # The API Gateway redirects and access through the internal port (80).
 
   webshoppingagg:
     environment:
@@ -337,12 +283,6 @@ services:
       - HealthChecks-UI__HealthChecks__1__Uri=http://webspa/hc
       - HealthChecks-UI__HealthChecks__2__Name=Web Shopping Aggregator GW HTTP Check
       - HealthChecks-UI__HealthChecks__2__Uri=http://webshoppingagg/hc
-      - HealthChecks-UI__HealthChecks__3__Name=Mobile Shopping Aggregator HTTP Check
-      - HealthChecks-UI__HealthChecks__3__Uri=http://mobileshoppingagg/hc
-      - HealthChecks-UI__HealthChecks__4__Name=Mobile Shopping API GW HTTP Check
-      - HealthChecks-UI__HealthChecks__4__Uri=http://mobileshoppingapigw/hc
-      - HealthChecks-UI__HealthChecks__5__Name=Mobile Marketing API GW HTTP Check
-      - HealthChecks-UI__HealthChecks__5__Uri=http://mobilemarketingapigw/hc
       - HealthChecks-UI__HealthChecks__6__Name=Web Shopping API GW HTTP Check
       - HealthChecks-UI__HealthChecks__6__Uri=http://webshoppingapigw/hc
       - HealthChecks-UI__HealthChecks__7__Name=Web Marketing API GW HTTP Check

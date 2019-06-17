@@ -68,7 +68,7 @@ if ($buildImages) {
 
 if ($pushImages) {
     Write-Host "Pushing images to $registry/$dockerOrg..." -ForegroundColor Yellow
-    $services = ("basket.api", "catalog.api", "identity.api", "ordering.api", "ordering.backgroundtasks", "marketing.api","payment.api","locations.api", "webmvc", "webspa", "webstatus", "ocelotapigw", "mobileshoppingagg", "webshoppingagg", "ordering.signalrhub")
+    $services = ("basket.api", "catalog.api", "identity.api", "ordering.api", "ordering.backgroundtasks", "marketing.api","payment.api","locations.api", "webmvc", "webspa", "webstatus", "ocelotapigw", "webshoppingagg", "ordering.signalrhub")
 
     foreach ($service in $services) {
         $imageFqdn = if ($useDockerHub)  {"$dockerOrg/${service}"} else {"$registry/$dockerOrg/${service}"}
@@ -124,7 +124,7 @@ if ($deployInfrastructure) {
 
 Write-Host 'Deploying ocelot APIGW' -ForegroundColor Yellow
 
-ExecKube "create configmap ocelot --from-file=mm=ocelot/configuration-mobile-marketing.json --from-file=ms=ocelot/configuration-mobile-shopping.json --from-file=wm=ocelot/configuration-web-marketing.json --from-file=ws=ocelot/configuration-web-shopping.json "
+ExecKube "create configmap ocelot --from-file=wm=ocelot/configuration-web-marketing.json --from-file=ws=ocelot/configuration-web-shopping.json "
 ExecKube -cmd "apply -f ocelot/deployment.yaml"
 ExecKube -cmd "apply -f ocelot/service.yaml"
 
@@ -138,7 +138,6 @@ ExecKube -cmd 'create configmap urls `
     --from-literal=mvc_e=http://$($externalDns)/webmvc `
     --from-literal=marketingapigw_e=http://$($externalDns)/webmarketingapigw `
     --from-literal=webshoppingapigw_e=http://$($externalDns)/webshoppingapigw `
-    --from-literal=mobileshoppingagg_e=http://$($externalDns)/mobileshoppingagg `
     --from-literal=webshoppingagg_e=http://$($externalDns)/webshoppingagg `
     --from-literal=identity_e=http://$($externalDns)/identity `
     --from-literal=spa_e=http://$($externalDns) `
@@ -177,7 +176,6 @@ ExecKube -cmd 'set image deployments/webstatus webstatus=${registryPath}${docker
 ExecKube -cmd 'set image deployments/webspa webspa=${registryPath}${dockerOrg}/webspa:$imageTag'
 ExecKube -cmd 'set image deployments/ordering-signalrhub ordering-signalrhub=${registryPath}${dockerOrg}/ordering.signalrhub:$imageTag'
 
-ExecKube -cmd 'set image deployments/mobileshoppingagg mobileshoppingagg=${registryPath}${dockerOrg}/mobileshoppingagg:$imageTag'
 ExecKube -cmd 'set image deployments/webshoppingagg webshoppingagg=${registryPath}${dockerOrg}/webshoppingagg:$imageTag'
 
 ExecKube -cmd 'set image deployments/apigwmm apigwmm=${registryPath}${dockerOrg}/ocelotapigw:$imageTag'
@@ -197,7 +195,6 @@ ExecKube -cmd 'rollout resume deployments/payment'
 ExecKube -cmd 'rollout resume deployments/webmvc'
 ExecKube -cmd 'rollout resume deployments/webstatus'
 ExecKube -cmd 'rollout resume deployments/webspa'
-ExecKube -cmd 'rollout resume deployments/mobileshoppingagg'
 ExecKube -cmd 'rollout resume deployments/webshoppingagg'
 ExecKube -cmd 'rollout resume deployments/apigwmm'
 ExecKube -cmd 'rollout resume deployments/apigwms'

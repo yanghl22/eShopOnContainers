@@ -168,11 +168,6 @@ spec:
            configMapKeyRef:
              name: urls
              key: ordering_e  
-        - name: MobileShoppingAggClient
-          valueFrom:
-           configMapKeyRef:
-             name: urls
-             key: mobileshoppingagg_e       
         - name: WebShoppingAggClient
           valueFrom:
            configMapKeyRef:
@@ -853,50 +848,6 @@ spec:
       containers:
       - name: webshoppingagg
         image: eshop/webshoppingagg
-        imagePullPolicy: Always
-        env:
-        - name: ASPNETCORE_URLS
-          value: http://0.0.0.0:80
-        - name: urls__basket
-          valueFrom:
-           configMapKeyRef:
-             name: internalurls
-             key: basket
-        - name: urls__catalog
-          valueFrom:
-           configMapKeyRef:
-             name: internalurls
-             key: catalog
-        - name: urls__orders
-          valueFrom:
-           configMapKeyRef:
-             name: internalurls
-             key: ordering             
-        - name: urls__identity
-          valueFrom:
-           configMapKeyRef:
-             name: internalurls
-             key: identity        
-        ports:
-        - containerPort: 80
-      imagePullSecrets:
-      - name: registry-key
----
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: mobileshoppingagg
-spec:
-  paused: true
-  template:
-    metadata:
-      labels:
-        app: eshop
-        component: mobileshoppingagg
-    spec:
-      containers:
-      - name: mobileshoppingagg
-        image: eshop/mobileshoppingagg
         imagePullPolicy: Always
         env:
         - name: ASPNETCORE_URLS
